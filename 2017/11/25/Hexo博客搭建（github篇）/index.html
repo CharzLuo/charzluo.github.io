@@ -104,7 +104,7 @@
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fluhw9aikxj30ci031wei.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fluhx7qy24j30eb01egll.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fluhymyhrkj30lx04tmxv.jpg">
-<meta property="og:updated_time" content="2017-11-27T05:02:59.947Z">
+<meta property="og:updated_time" content="2017-11-27T05:05:24.432Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo博客搭建（github篇）">
 <meta name="twitter:description" content="之前搭建博客，一直都是买个 VPS，一键安装 wordpress，无脑搭建，快速省力，但是wp一定程度稍显些臃肿，我的需求其实就是建立一个写写文章的地方，于是就选择了Hexo。文章以 Mac 作为演示，Windows 系统操作基本一致。">
@@ -365,7 +365,9 @@
 <p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fluht8eld6j30kk0auq3w.jpg" alt=""></p>
 <p>点击 Add SSH key 按钮，即可完成 github 和 SSH 配置。</p>
 <p>接下来开始安装 Hexo</p>
-<h2 id="安装和初始化-Hexo"><a href="#安装和初始化-Hexo" class="headerlink" title="安装和初始化 Hexo"></a>安装和初始化 Hexo</h2><h3 id="安装-nodejs"><a href="#安装-nodejs" class="headerlink" title="安装 nodejs"></a>安装 nodejs</h3><p>可以去官网下载安装包安装，验证是否安装成功，可在终端输入<br>        node -v<br>如果显示 v8.9.1这样的 版本号，代表成功安装。（我安装 nodejs 从来没出过问题，如果有问题，推荐先去官网的论坛）</p>
+<h2 id="安装和初始化-Hexo"><a href="#安装和初始化-Hexo" class="headerlink" title="安装和初始化 Hexo"></a>安装和初始化 Hexo</h2><h3 id="安装-nodejs"><a href="#安装-nodejs" class="headerlink" title="安装 nodejs"></a>安装 nodejs</h3><p>可以去官网下载安装包安装，验证是否安装成功，可在终端输入</p>
+<pre><code>node -v
+</code></pre><p>如果显示 v8.9.1这样的 版本号，代表成功安装。（我安装 nodejs 从来没出过问题，如果有问题，推荐先去官网的论坛）</p>
 <h3 id="安装-git"><a href="#安装-git" class="headerlink" title="安装 git"></a>安装 git</h3><p>由于 Mac 系统自带了 git，没有安装的朋友，可以去官网按照步骤安装即可，请下载命令行版本（点击官网右侧的 DOWNLOAD 即可），非 GUI 版本。<br>￼<br><img src="https://ws2.sinaimg.cn/large/006tNc79ly1flufbmuepmj30ri0ldn6e.jpg" alt=""></p>
 <h3 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h3><p>唔，经历那么多准备，终于开始最主要的部分了。<br><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">Hexo中文官方文档</a><br>￼<br><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fluhrokwecj30yi0nu0vm.jpg" alt=""></p>
 <p>为了方便管理，我选择了把 hexo 安装了我指定的目录，依旧通过 cd 命令，定位到指定的文件夹，我本地的目录在 Documents 里的 nulluocom 文件夹里<br>先定位到 Documents 文件夹</p>
@@ -377,8 +379,9 @@
 <pre><code>npm install hexo-cli -g
 </code></pre><p>如果安装提示失败，则尝试管理员权限安装</p>
 <pre><code>sudo npm install hexo-cli -g
-</code></pre><p>当终端显示安装完成后，输入<br>        hexo</p>
-<p>或(如果hexo 显示没权限的话)</p>
+</code></pre><p>当终端显示安装完成后，输入</p>
+<pre><code>hexo
+</code></pre><p>或(如果hexo 显示没权限的话)</p>
 <pre><code>sudo hexo
 </code></pre><p>如果终端显示如下，则代表 hexo 成功安装<br>￼<br><img src="https://ws2.sinaimg.cn/large/006tNc79ly1flufm7vzlbj30i00bymzp.jpg" alt=""></p>
 <h3 id="初始化Hexo"><a href="#初始化Hexo" class="headerlink" title="初始化Hexo"></a>初始化Hexo</h3><p>安装成功后，现在需要将 Hexo 初始化，输入hexo初始化命令（sudo 情况同上，以下不再重复）</p>
