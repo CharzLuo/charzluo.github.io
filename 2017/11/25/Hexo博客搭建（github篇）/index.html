@@ -104,7 +104,7 @@
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fluhw9aikxj30ci031wei.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fluhx7qy24j30eb01egll.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fluhymyhrkj30lx04tmxv.jpg">
-<meta property="og:updated_time" content="2017-12-07T08:31:42.713Z">
+<meta property="og:updated_time" content="2017-12-07T08:38:04.812Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo博客搭建（github篇）">
 <meta name="twitter:description" content="之前搭建博客，一直都是买个 VPS，一键安装 wordpress，无脑搭建，快速省力，但是wp一定程度稍显些臃肿，我的需求其实就是建立一个写写文章的地方，于是就选择了Hexo。文章以 Mac 作为演示，Windows 系统操作基本一致。 文章目录 SSH 密钥 安装和初始化 Hexo 新建 Github 仓库 Hexo 与 Github 绑定 开始第一篇文章     SSH 密钥SSH 一方面是">
@@ -417,7 +417,7 @@
 </code></pre><p>或缩写</p>
 <pre><code>hexo d
 </code></pre><p>会根据刚才配置文件你填写的 repo 地址，把你本地的东西都布到了 github 上。</p>
-<p>有时候输入<code>hexo d````会提示失败，可以先尝试输入`npm install hexo-deployer-git --save``命令后，再次尝试</code>hexo d<code>``，基本可以解决此问题。</code></p>
+<p>有时候输入<code>hexo d````会提示失败，可以先尝试输入`npm install hexo-deployer-git --save</code>命令后，再次尝试<code>hexo d\`\</code>，基本可以解决此问题。`</p>
 <h3 id="Hexo-与-Github-绑定"><a href="#Hexo-与-Github-绑定" class="headerlink" title="Hexo 与 Github 绑定"></a>Hexo 与 Github 绑定</h3><p>但现在你输入你在域名商购买的地址，是不是还是显示没东西？那肯定了，因为你买的域名没有解析到 github 你创建的仓库上，这时候你需要去你的域名商的 dns 设置，我用的 DNSpod，以此为例</p>
 <p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fluhymyhrkj30lx04tmxv.jpg" alt=""></p>
 <p>添加一条记录，记录类型选择 CNAME，记录值填写刚才新建的 github 项目名称，对就是用你的 github 帐号名.github.io，这个地址保存，恩，完成了，现在再看看是不是就有了？</p>
