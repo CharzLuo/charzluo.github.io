@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="title: Swift4 - The Basicsdate: 2017-11-25tags: [swift] [iOS]categories: [Coding]—">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nullx | Solo">
+<meta property="og:url" content="http://nulluo.com/2017/12/07/Swift4 - The Basics/index.html">
+<meta property="og:site_name" content="Nullx | Solo">
+<meta property="og:description" content="title: Swift4 - The Basicsdate: 2017-11-25tags: [swift] [iOS]categories: [Coding]—">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-07T08:12:13.287Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Nullx | Solo">
+<meta name="twitter:description" content="title: Swift4 - The Basicsdate: 2017-11-25tags: [swift] [iOS]categories: [Coding]—">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://nulluo.com/2017/12/07/Swift4 - The Basics/"/>
+
+
+
+
+
+  <title> | Nullx | Solo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Nullx | Solo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nulluo.com/2017/12/07/Swift4 - The Basics/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Charzluo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nullx | Solo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-07T16:12:13+08:00">
+                2017-12-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<p>title: Swift4 - The Basics<br>date: 2017-11-25<br>tags: [swift] [iOS]<br>categories: [Coding]<br>—</p>
+<a id="more"></a>
+<p><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/index.html#//apple_ref/doc/uid/TP40014097-CH3-ID0" target="_blank" rel="noopener"> Swift 4 官方文档 </a></p>
+<h1 id="The-Basics"><a href="#The-Basics" class="headerlink" title="The Basics"></a>The Basics</h1><h2 id="Constants-and-Variables-常量和变量"><a href="#Constants-and-Variables-常量和变量" class="headerlink" title="Constants and Variables 常量和变量"></a>Constants and Variables 常量和变量</h2><p>常量的值一旦设定就不能改变，而变量的值可以随意更改。</p>
+<h2 id="Declaring-Constants-and-Variables-声明常量和变量"><a href="#Declaring-Constants-and-Variables-声明常量和变量" class="headerlink" title="Declaring Constants and Variables 声明常量和变量"></a>Declaring Constants and Variables 声明常量和变量</h2><ol>
+<li><p>常量和变量必须在使用前声明，用 关键字let来声明常量和关键字 var来声明变量。<br> 例：</p>
+<pre><code>let maximumNumberOfLoginAttempts = 10
+var currentLoginAttempt = 0
+</code></pre><p> 这两行代码可以被理解为：<br> “声明一个名字是<code>maximumNumberOfLoginAttempts的新常量</code>，并给它一个值<code>10</code>。然后，声明一个名字是<code>currentLoginAttempt</code>的变量并将它的值初始化为<code>0</code> ”</p>
+</li>
+<li><p>可以在一行中声明多个常量或者多个变量，用逗号隔开：</p>
+<pre><code>var x = 0.0, y = 0.0, z = 0.0
+</code></pre></li>
+</ol>
+<h2 id="Type-Annotations-类型标注"><a href="#Type-Annotations-类型标注" class="headerlink" title="Type Annotations 类型标注"></a>Type Annotations 类型标注</h2><p>当声明常量或者变量的时候可以加上 类型标注 (type annotation），说明常量或者变量中要存储的值的类型。通过在常量或变量名后面接一个冒号来写一个类型标注，后跟一个空格，后跟要使用的类型的名称。</p>
+<p>例子给welcomeMessage 变量添加了类型标注，表示这个变量可以存储 String类型的值：<br>    var welcomeMessage: String</p>
+<p>声明中的冒号代表着“xx是xx类型”，所以这行代码可以被理解为：</p>
+<ul>
+<li>声明一个类型为 <code>String</code>，名字为<code>welcomeMessage</code>的变量</li>
+<li>类型为 String ”的意思是“可以存储任意 String 类型的值</li>
+</ul>
+<p>可以在一行中定义多个同样类型的变量，用逗号分割，并在最后一个变量名之后添加类型标注:<br>    var red, green, blue: Double</p>
+<blockquote>
+<p>一般来说很少需要写类型标注。如果你在声明常量或者变量的时候赋了一个初始值，Swift可以推断出这个常量或者变量的类型</p>
+</blockquote>
+<h2 id="Naming-Constants-and-Variables-常量和变量的命名"><a href="#Naming-Constants-and-Variables-常量和变量的命名" class="headerlink" title="Naming Constants and Variables 常量和变量的命名"></a>Naming Constants and Variables 常量和变量的命名</h2><p>常量与变量名不能包含空格，数学符号，箭头，保留的（或者非法的）Unicode 码位，连线与制表符。不能以数字开头，但是可以在常量与变量名的其他地方包含数字。<br>一旦你将常量或者变量声明为确定的类型，你就不能使用相同的名字再次进行声明，或者改变其存储的值的类型。同时，你也不能将常量与变量进行互转。</p>
+<p>作者：Guards翻译组<br>链接：<a href="http://www.jianshu.com/p/13262bd2e453" target="_blank" rel="noopener">http://www.jianshu.com/p/13262bd2e453</a><br>來源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<pre><code>var friendlyWelcome = &quot;Hello!&quot;
+friendlyWelcome = &quot;Bonjour!&quot;
+// friendlyWelcome 现在是 &quot;Bonjour!&quot;
+</code></pre><p>与变量不同，常量的值一旦被确定就不能更改了。尝试这样做会导致编译时报错：</p>
+<pre><code>let languageName = &quot;Swift&quot;
+languageName = &quot;Swift++&quot;
+// 这会报编译时错误 - languageName 不可改变
+</code></pre><h2 id="Printing-Constants-and-Variables-输出常量和变量"><a href="#Printing-Constants-and-Variables-输出常量和变量" class="headerlink" title="Printing Constants and Variables 输出常量和变量"></a>Printing Constants and Variables 输出常量和变量</h2><pre><code>print(_:separator:terminator:)
+</code></pre><p>Swift 用字符串插值（string interpolation)的方式把常量名或者变量名当做占位符加入到长字符串中，Swift 会用当前常量或变量的值替换这些占位符。将常量或变量名放入圆括号中，并在开括号前使用反斜杠将其转义：</p>
+<pre><code>print(&quot;The current value of friendlyWelcome is \(friendlyWelcome)&quot;)
+// 输出 &quot;The current value of friendlyWelcome is Bonjour!
+</code></pre><h2 id="Comments-注释"><a href="#Comments-注释" class="headerlink" title="Comments 注释"></a>Comments 注释</h2><p>单行注释: //</p>
+<pre><code>// 这是一个注释
+</code></pre><p>多行注释： /<em> 开始，</em>/结束<br>    /<em> 这是一个,多行注释 </em>/</p>
+<p>Swift 的多行注释可以嵌套在其它的多行注释之中。你可以先生成一个多行注释块，然后在这个注释块之中再嵌套成第二个多行注释。终止注释时先插入第二个注释块的终止标记，然后再插入第一个注释块的终止标记：</p>
+<pre><code>/* 这是第一个多行注释的开头
+/* 这是第二个被嵌套的多行注释 */
+  这是第一个多行注释的结尾 */
+</code></pre><h2 id="Semicolons-分号"><a href="#Semicolons-分号" class="headerlink" title="Semicolons 分号"></a>Semicolons 分号</h2><p>Swift 并不强制要求你在每条语句的结尾处使用分号（<code>;</code>），当然，你也可以按照你自己的习惯添加分号。有一种情况下必须要用分号，即你打算在同一行内写多条独立的语句：</p>
+<pre><code>let cat = &quot;&quot;; 
+print(cat)// 输出 &quot;&quot;
+</code></pre><h2 id="Integers-整数"><a href="#Integers-整数" class="headerlink" title="Integers 整数"></a>Integers 整数</h2><p>整数就是没有小数部分的数字，整数可以是 有符号（正数、零和负数）或者无符号（正数、零）。</p>
+<h2 id="Integer-Bounds-整数范围"><a href="#Integer-Bounds-整数范围" class="headerlink" title="Integer Bounds 整数范围"></a>Integer Bounds 整数范围</h2><p>以访问不同整数类型的<code>min</code>和<code>max</code>属性来获取对应类型的最小值和最大值：  </p>
+<pre><code>let minValue = UInt8.min  // minValue 为 0，是 UInt8 类型
+let maxValue = UInt8.max  // maxValue 为 255，是 UInt8 类型
+</code></pre><h2 id="Int"><a href="#Int" class="headerlink" title="Int"></a>Int</h2><p>除非你需要特定长度的整数，一般来说使用 Int就够了</p>
+<h2 id="Uint"><a href="#Uint" class="headerlink" title="Uint"></a>Uint</h2><p>Swift 也提供了一个特殊的无符号类型 UInt，长度与当前平台的原生字长相同：</p>
+<ul>
+<li>在32位平台上，UInt 和 UInt32长度相同</li>
+<li>在64位平台上，UInt 和 UInt64长度相同</li>
+</ul>
+<blockquote>
+<p>尽量不要使用UInt，除非你真的需要存储一个和当前平台原生字长相同的无符号整数。除了这种情况，最好使用Int，即使你要存储的值已知是非负的。统一使用Int可以提高代码的可复用性，避免不同类型数字之间的转换，并且匹配数字的类型推断</p>
+</blockquote>
+<h2 id="Float"><a href="#Float" class="headerlink" title="Float"></a>Float</h2><p>浮点数是有小数部分的数字，比如 <code>3.14159</code>，<code>0.1</code>和 <code>-273.15</code></p>
+<p>类型更大或者更小的数字。Swift 提供了两种有符号浮点数类型：</p>
+<ul>
+<li><code>Double</code>表示64位浮点数</li>
+<li><code>Float</code>表示32位浮点数</li>
+</ul>
+<blockquote>
+<p>Double精确度很高，至少有15位数字，而Float只有6位数字。选择哪个类型取决于你的代码需要处理的值的范围，在两种类型都可以选择的情况下，将优先选择 Double</p>
+</blockquote>
+<h2 id="Type-Safety-and-Type-Inference-类型安全和类型推断"><a href="#Type-Safety-and-Type-Inference-类型安全和类型推断" class="headerlink" title="Type Safety and Type Inference 类型安全和类型推断"></a>Type Safety and Type Inference 类型安全和类型推断</h2><p>Swift 是一个类型安全（type-safe）的语言。类型安全的语言可以让你清楚地知道代码要处理的值的类型。如果你的代码需要一个String，你绝对不可能错误地传进去一个Int，它会在编译你的代码时进行类型检查<code>（type checks）</code>。</p>
+<p>如果你没有显式指定类型，Swift 会使用类型推断<code>（type inference）</code>来选择合适的类型。有了类型推断，编译器可以在编译代码的时候自动推断出表达式的类型。原理很简单，只要检查你赋的值即可。</p>
+<p>当推断浮点数的类型时，Swift 总是会优先选择 Double而不是Float。如果表达式中同时出现了整数和浮点数，会被推断为 Double：</p>
+<pre><code>let anotherPi = 3 + 0.14159  // anotherPi 会被推测为 Double 类型
+</code></pre><p>原始值<code>3</code> 没有显式声明类型，而表达式中出现了一个浮点数，所以表达式会被推断为 <code>Double</code>类型</p>
+<h2 id="Numeric-Literals-数值型字面量"><a href="#Numeric-Literals-数值型字面量" class="headerlink" title="Numeric Literals 数值型字面量"></a>Numeric Literals 数值型字面量</h2><p>整数字面量可以被写作：</p>
+<ul>
+<li>一个<code>十进制</code>数，没有前缀</li>
+<li>一个<code>二进制</code>数，前缀是``0b</li>
+<li>一个<code>八进制</code>数，前缀是<code>0o</code></li>
+<li>一个<code>十六进制</code>数，前缀是<code>0x</code></li>
+</ul>
+<h2 id="Numeric-Type-Conversion-数值型类型转换"><a href="#Numeric-Type-Conversion-数值型类型转换" class="headerlink" title="Numeric Type Conversion 数值型类型转换"></a>Numeric Type Conversion 数值型类型转换</h2><p>通常来讲，即使代码中的整数常量和变量已知非负，也请使用Int类型。总是使用默认的整数类型可以保证你的整数常量和变量可以直接被复用并且可以匹配整数类字面量的类型推断。</p>
+<p>只有在必要的时候才使用其他整数类型，比如要处理外部的长度明确的数据或者为了优化性能、内存占用等等。使用显式指定长度的类型可以及时发现值溢出并且可以暗示正在处理特殊数据。</p>
+<h2 id="Integer-Conversion-整数转换"><a href="#Integer-Conversion-整数转换" class="headerlink" title="Integer Conversion 整数转换"></a>Integer Conversion 整数转换</h2><p>不同整数类型的变量和常量可以存储不同范围的数字。Int8类型的常量或者变量可以存储的数字范围是-128-127，而UInt8类型的常量或者变量能存储的数字范围是0-255。如果数字超出了常量或者变量可存储的范围，编译的时候会报错：</p>
+<pre><code>let cannotBeNegative: UInt8 = -1// UInt8 类型不能存储负数，所以会报错
+let tooBig: Int8 = Int8.max + 1// Int8 类型不能存储超过最大值的数，所以会报错
+</code></pre><p>常量<code>twoThousand</code>是UInt16类型，然而常量one是<code>UInt8</code>类型。它们不能直接相加，因为它们类型不同。所以要调用<code>UInt16(one)</code>来创建一个新的<code>UInt16</code>数字并用<code>one</code>的值来初始化，然后使用这个新数字来计算：</p>
+<pre><code>let twoThousand: UInt16 = 2_000
+let one: UInt8 = 1
+let twoThousandAndOne = twoThousand + UInt16(one)
+</code></pre><p>现在两个数字的类型都是 <code>UInt16</code>，可以进行相加。输出常量 <code>twoThousandAndOne</code>的类型被推断为<code>UInt16</code>，因为它是两个<code>UInt16</code>值的和。</p>
+<p><code>SomeType（ofInitialValue）</code>是调用Swift类型的初始化器并传入初始值的默认方式。</p>
+<h2 id="Integer-and-Floating-Point-Conversion-整数和浮点数转换"><a href="#Integer-and-Floating-Point-Conversion-整数和浮点数转换" class="headerlink" title="Integer and Floating-Point Conversion 整数和浮点数转换"></a>Integer and Floating-Point Conversion 整数和浮点数转换</h2><p>整数和浮点数的转换必须显式指定类型：</p>
+<pre><code>let three = 3let pointOneFourOneFiveNine = 0.14159
+let pi = Double(three) + pointOneFourOneFiveNine  // pi 等于 3.14159，所以被推测为 Double 类型
+</code></pre><p>这个例子中，常量<code>three</code>的值被用来创建一个Double类型的值，所以加号两边的数类型须相同。如果不进行转换，两者无法相加。浮点数到整数的反向转换同样行，整数类型可以用<code>Double</code>或者 <code>Float</code>类型来初始化：</p>
+<pre><code>let integerPi = Int(pi)// integerPi 等于 3，所以被推测为 Int 类型
+</code></pre><p>当用浮点类型来初始化一个新的整数值时，浮点值会被截断。也就是说<code>4.75</code>会变成<code>4</code>，<code>-3.9</code>会变成<code>-3</code></p>
+<h2 id="Type-Aliases-类型别名"><a href="#Type-Aliases-类型别名" class="headerlink" title="Type Aliases 类型别名"></a>Type Aliases 类型别名</h2><p>类型别名<code>type aliases</code>就是给现有类型定义另一个名字。你可以使用<code>typealias</code>关键字来定义类型别名</p>
+<h2 id="Booleans-布尔值"><a href="#Booleans-布尔值" class="headerlink" title="Booleans 布尔值"></a>Booleans 布尔值</h2><p>Swift 有一个基本的布尔Boolean类型，叫做Bool。布尔值指逻辑上的值，因为它们只能是真或者假。Swift 有两个布尔常量，true和false：</p>
+<pre><code>let orangesAreOrange = truelet 
+turnipsAreDelicious = false
+</code></pre><h2 id="Tuples-元组"><a href="#Tuples-元组" class="headerlink" title="Tuples 元组"></a>Tuples 元组</h2><p>元组<code>tuples</code>把多个值组合成一个复合值。元组内的值可以是任意类型，并不要求是相同类型。</p>
+<blockquote>
+<p>Note：元组在临时组织值的时候很有用，但是并不适合创建复杂的数据结构。如果你的数据结构并不是临时使用，请使用类或者结构体而不是元组。</p>
+</blockquote>
+<h2 id="Optionals-可选类型"><a href="#Optionals-可选类型" class="headerlink" title="Optionals 可选类型"></a>Optionals 可选类型</h2><p>值可能不存在的情况下，你可以使用可选类型。 一个可选类型代表两种可能性：要么它有值(你可以通过解包来访问该值), 或者没有值</p>
+<p>一个对象要么返回确定的值要么返回nil，其中nil表示“对象不存在”。</p>
+<h2 id="Nil"><a href="#Nil" class="headerlink" title="Nil"></a>Nil</h2><p>通过赋值<code>nil</code>，你可以将一个可选类型设置为无值状态:</p>
+<pre><code>var serverResponseCode：Int？ = 404
+// serverResponseCode包含一个具体的Int值，即404
+serverResponseCode = nil
+// serverResponseCode现在不包含任何值
+</code></pre><blockquote>
+<p>nil不能和非可选类型的常量和变量一起使用。 如果你的代码中的常量或变量在某些情况下需要以没有值的状态运行，那你应该始终将其声明为可选类型。</p>
+</blockquote>
+<p>如果你定义了一个可选类型的变量， 但是不设置默认值，那么该变量的值将自动设置为<code>nil</code>：</p>
+<pre><code>var surveyAnswer：String？
+// surveyAnswer自动设置为nil
+</code></pre><blockquote>
+<p>Swift中的nil不同于OC中的nil。 在OC中，nil 是一个指向不存在的对象的指针。 在Swift中，nil不是指针, 它是一个不存在值的特定类型的。 任何数据类型的可选类型都可以设置为 nil，而不仅仅是对象类型。</p>
+</blockquote>
+<h2 id="If-Statements-and-Forced-Unwrapping-If语句和强制解包"><a href="#If-Statements-and-Forced-Unwrapping-If语句和强制解包" class="headerlink" title="If Statements and Forced Unwrapping  If语句和强制解包"></a>If Statements and Forced Unwrapping  If语句和强制解包</h2><p>你可以通过使用if语句比较可选类型和nil，进而确定这个可选类型是否包含具体的值。你可以使用等于 运算符== 或 不等于 运算符!=执行比较。</p>
+<p>如果一个可选类型有一个值，即它被认为是“不等于”<code>nil</code>：</p>
+<pre><code>if convertedNumber != nil {
+    print（“convertedNumber包含一些整数值”）
+}
+//打印结果：“convertedNumber包含一些整数值”。
+</code></pre><p>一旦你确定可选类型确实有值，你可以通过在可选类型名称的末尾添加感叹号（<code>!</code>）来访问其包含的值。这个感叹号如同在宣称：“ 我知道这个可选类型肯定有值，请使用它。” 这被称为可选类型的强制解包：</p>
+<pre><code>if convertedNumber != nil {
+    print（“convertedNumber的值为\(convertedNumber!)”）
+}
+// 打印结果： “convertedNumber的值为123”
+</code></pre><blockquote>
+<p>使用 (<code>!</code>) 时，访问不存在值的可选类型会触发运行错误, 所以在使用(!) 强制解包前, 要始终确保可选类型包含了非空的值。</p>
+</blockquote>
+<h2 id="Optional-Binding-可选绑定"><a href="#Optional-Binding-可选绑定" class="headerlink" title="Optional Binding 可选绑定"></a>Optional Binding 可选绑定</h2><p>你可以使用可选绑定来确定可选类型是否包含值，如果这样做，你必须把这个绑定的值用作临时常量或变量。可选绑定可以与if-while 语句一起使用，以检查可选类型中的值，并作为这个操作的一部分将该值提取为常量或变量。if-while语句在控制流(Control Flow)中有更详细的描述。</p>
+<p>为<code>if</code>语句编写可选绑定如下所示：</p>
+<pre><code>  if let constantName = someOptional {
+    //statements
+}
+</code></pre><p>你可以使用可选绑定重写 Optionals 部分的<code>possibleNumber</code>示例，而不是使用强制解包：</p>
+<pre><code>if let actualNumber = Int（possibleNumber）{
+     print（&quot;\&quot;\（possibleNumber）\&quot;的整数值为\（actualNumber）&quot;）
+} else {
+     print（&quot;\&quot;\（possibleNumber）\&quot;无法转换为Int类型&quot;）
+}
+// 打印结果： ”123“的整数值为123“
+</code></pre><p>这段代码可以这样理解：<br>“如果Int(possibleNumber)方法返回的可选Int包含一个值，创建一个名为actualNumber的新常量并设置其值为可选类型包含的值。”<br>如果转换成功，则常量actualNumber可用于if语句的第一个分支中。它已经通过可选类型中的值初始化了，所以没有必要使用！后缀访问其值。在这个例子中，actualNumber只简单地用于打印转换后的结果。</p>
+<h2 id="Implicitly-Unwrapped-Optionals-隐式解包可选类型"><a href="#Implicitly-Unwrapped-Optionals-隐式解包可选类型" class="headerlink" title="Implicitly Unwrapped Optionals 隐式解包可选类型"></a>Implicitly Unwrapped Optionals 隐式解包可选类型</h2><p>使用可选类型意味着允许常量或变量可以“无值”。使用<code>if</code>语句可以查看可选类型的值是否存在，并且可以使用可选绑定解包以访问存在的可选类型值。</p>
+<p>在设置了初始值后，有时从程序的结构中可以清楚地看到，可选类型将始终有值。在这种情况下，每次访问可选类型的值时没有必要进行检查和解包，因为我们可以安全地假定任何情况下它都是有值的。</p>
+<p>这种可选类型被定义为隐式解包可选类型。通过在想要设置为可选类型的参数后添加一个感叹号(<code>String!</code>)，而不是一个问号(<code>String?</code>)，你就可以得到一个隐式解包的可选类型。(译者注:  即隐式解包即常说的 强制解包)</p>
+<p>隐式解包可选类型是一个常规选择，但也可以像非可选类型一样使用，无需在每次访问时进行解包。 以下示例展示了当访问可选String类型与隐式解包可选String类型的一个具体String值时， 两者的差异：</p>
+<pre><code>let possibleString: String? = &quot;An optional string.&quot;
+let forcedString: String = possibleString! // 要求加上!来解包
+
+let assumedString: String! = &quot;An implicitly unwrapped optional string.&quot;
+let implicitString: String = assumedString // 不需要加上!也可以解包
+</code></pre><blockquote>
+<p>如果一个隐式解包可选类型的值为nil，当你尝试访问其值时则会触发运行时错误。 其原因与给一个值为空的常规可选类型添加感叹号的情形完全相同。</p>
+</blockquote>
+<p>你仍然可以将隐式解包可选类型视为常规的可选类型，以检查它是否包含一个值：</p>
+<pre><code>if assumedString != nil {
+    print(assumedString)
+}
+// 打印结果： &quot;An implicitly unwrapped optional string.”
+</code></pre><p>还可以使用隐式解包可选类型与可选绑定，在单个语句中检查和解包其值：</p>
+<pre><code>if let definiteString = assumedString {
+    print(definiteString)
+}
+// 打印结果： &quot;An implicitly unwrapped optional string.”
+</code></pre><h2 id="Error-Handling-错误处理"><a href="#Error-Handling-错误处理" class="headerlink" title="Error Handling 错误处理"></a>Error Handling 错误处理</h2><p>可以使用错误处理来应对你的程序在执行过程中可能遇到的错误。</p>
+<p>与可选类型相反，错误处理可以通过值的存在或不存在来表示一个function的成功或失败，允许你确定error的根本原因，如有必要，它还能将error传送到程序的另一部分。</p>
+<p>当方法遇到错误条件时，会抛出一个error。 该方法的调用者可以捕获错误并作出适当的响应。</p>
+<pre><code>func canThrowAnError() throws {
+     //这个函数可能会抛出一个错误
+}
+</code></pre><p>一个函数通过在其声明中包含<code>throws</code>关键字来说明它可以抛出异常。 当你调用一个可以抛出异常的函数时，你可以在表达式中添加<code>try</code>关键字。<br>Swift会自动将错误传送到当前作用域之外，直到被<code>catch</code>语句处理。</p>
+<pre><code>do {
+    try canThrowAnError()
+    // no error was thrown
+} catch {
+    // an error was thrown
+}
+</code></pre><p><code>do</code>语句创建一个新的包含范围，它允许将错误传送到一个或多个catch子句。</p>
+<p>以下是一个示例，说明如何使用错误处理来响应不同的错误条件：</p>
+<pre><code>func makeASandwich() throws {
+    // ...
+}
+
+do {
+    try makeASandwich()
+    eatASandwich()
+} catch SandwichError.outOfCleanDishes {
+    washDishes()
+} catch SandwichError.missingIngredients(let ingredients) {
+    buyGroceries(ingredients)
+}
+</code></pre><p>在此示例中，如果没有干净的碗碟或 缺少食材 ，那么<code>makeASandwich()</code>方法就会抛出error。我们将该函数的调用包装在<code>try</code>表达式中。 通过do语句中包装并调用函数，抛出的所有错误将被传送到<code>catch</code>语句进行处理。</p>
+<p>如果没有错误发生，那么<code>eatASandwich()</code>方法就会被调用。 如果抛出一个错误并且匹配到<code>SandwichError.outOfCleanDishes</code>，那么<code>washDishes()</code>函数将会被调用。 如果抛出的错误匹配到<code>SandwichError.missingIngredients</code>，则会调用<code>buyGroceries(_ :)</code>方法，并把<code>catch</code>捕获的关联值(String类型）传给它。_</p>
+<h2 id="Assertions-and-Preconditions-断言和先决条件"><a href="#Assertions-and-Preconditions-断言和先决条件" class="headerlink" title="Assertions and Preconditions 断言和先决条件"></a>Assertions and Preconditions 断言和先决条件</h2><p>断言和先决条件是会在运行时进行的检查手段。在执行任何其他代码之前，你可以使用它们来确保基本条件已经满足。如果断言或前提条件中的布尔条件为<code>true</code>，则代码照常执行。如果条件为<code>false</code>，那么程序当前处于无效状态；代码会结束执行，你的应用程序也会被终止。</p>
+<p>写代码时，使用断言和先决条件你可以表达出你需要的期望条件，因此你可以将它们作为代码的一部分。在开发过程中，断言可帮助你发现错误和不正确的假设条件，先决条件可帮助你检测发布后的问题。除了在运行时验证你的期望条件外，断言和先决条件也是代码中一种有效的文档形式。与先前在错误处理中讨论的错误条件不同，断言和先决条件不用于可恢复的或期望的错误，因为失败的断言或先决条件表示无效的程序状态，所以无法捕获失败的断言。</p>
+<p>使用断言和先决条件并不意味着在你的代码中无效条件就一定不会出现。 然而，使用它们来强制执行有效的数据，会使你的应用程序在错误发生并被强制终止时，更具备可监测性，而且有助于调试。 一旦检测到无效状态，停止执行也有助于将其引起的损坏最小化。</p>
+<p>断言和先决条件之间的区别在于被执行的时间点有所不同：断言仅在调试版本中执行，但在调试和发布版本中先决条件都会被执行。 在发布版本中，断言内的条件不再被执行。 这意味着你可以在开发过程中使用尽可能多地使用断言，因为这并不会影响发布版本的性能。</p>
+<h2 id="Debugging-with-Assertions-用断言进行调试"><a href="#Debugging-with-Assertions-用断言进行调试" class="headerlink" title="Debugging with Assertions 用断言进行调试"></a>Debugging with Assertions 用断言进行调试</h2><p>通过从Swift标准库调用<code>assert(_:_:file：line:)</code>方法，你写下一个断言。 你将一段文字和一个结果为<code>true</code>或<code>false</code>的表达式赋值给这个方法，如果表达式的结果为<code>false</code>，则显示这段文字。 例如：</p>
+<pre><code>let age = -3
+assert(age &gt;= 0, &quot;A person&apos;s age can&apos;t be less than zero.&quot;)
+// This assertion fails because -3 is not &gt;= 0.
+</code></pre><p>在这个例子中，如果<code>age\&gt; = 0</code>的值为<code>true</code>，那么代码继续执行，即<code>age</code>为正值。 如果<code>age</code>为负值，如上面的代码所示，<code>age\&gt; = 0</code>为<code>false</code>，断言失败，终止应用程序。</p>
+<p>可以省略断言发布的文字——例如当它只是一个单调的重复条件。</p>
+<pre><code>assert(age &gt;= 0)
+</code></pre><h2 id="Enforcing-Preconditions-执行先决条件"><a href="#Enforcing-Preconditions-执行先决条件" class="headerlink" title="Enforcing Preconditions 执行先决条件"></a>Enforcing Preconditions 执行先决条件</h2><p>当条件有可能为false的时候使用先决条件，但是必须确保你的代码会继续执行。 例如，你可以使用先决条件来判断下标是否越界，或者检查方法是否接收到一个有效的值。</p>
+<p>通过调用<code>precondition(_:_:file:line:)</code>方法你可以编写先决条件。 你需要给此方法赋值一个表达式，其计算结果为<code>true</code>或<code>false</code>，如果条件的结果为<code>false</code>，则显示一段文字（也是由你赋值）。 例如：</p>
+<pre><code>// In the implementation of a subscript...
+precondition(index &gt; 0, &quot;Index must be greater than zero.&quot;)
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/25/Hexo博客搭建（github篇）/" rel="next" title="Hexo博客搭建（github篇）">
+                <i class="fa fa-chevron-left"></i> Hexo博客搭建（github篇）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Charzluo</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#The-Basics"><span class="nav-number">1.</span> <span class="nav-text">The Basics</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Constants-and-Variables-常量和变量"><span class="nav-number">1.1.</span> <span class="nav-text">Constants and Variables 常量和变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Declaring-Constants-and-Variables-声明常量和变量"><span class="nav-number">1.2.</span> <span class="nav-text">Declaring Constants and Variables 声明常量和变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Type-Annotations-类型标注"><span class="nav-number">1.3.</span> <span class="nav-text">Type Annotations 类型标注</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Naming-Constants-and-Variables-常量和变量的命名"><span class="nav-number">1.4.</span> <span class="nav-text">Naming Constants and Variables 常量和变量的命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Printing-Constants-and-Variables-输出常量和变量"><span class="nav-number">1.5.</span> <span class="nav-text">Printing Constants and Variables 输出常量和变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Comments-注释"><span class="nav-number">1.6.</span> <span class="nav-text">Comments 注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Semicolons-分号"><span class="nav-number">1.7.</span> <span class="nav-text">Semicolons 分号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Integers-整数"><span class="nav-number">1.8.</span> <span class="nav-text">Integers 整数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Integer-Bounds-整数范围"><span class="nav-number">1.9.</span> <span class="nav-text">Integer Bounds 整数范围</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Int"><span class="nav-number">1.10.</span> <span class="nav-text">Int</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Uint"><span class="nav-number">1.11.</span> <span class="nav-text">Uint</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Float"><span class="nav-number">1.12.</span> <span class="nav-text">Float</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Type-Safety-and-Type-Inference-类型安全和类型推断"><span class="nav-number">1.13.</span> <span class="nav-text">Type Safety and Type Inference 类型安全和类型推断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Numeric-Literals-数值型字面量"><span class="nav-number">1.14.</span> <span class="nav-text">Numeric Literals 数值型字面量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Numeric-Type-Conversion-数值型类型转换"><span class="nav-number">1.15.</span> <span class="nav-text">Numeric Type Conversion 数值型类型转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Integer-Conversion-整数转换"><span class="nav-number">1.16.</span> <span class="nav-text">Integer Conversion 整数转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Integer-and-Floating-Point-Conversion-整数和浮点数转换"><span class="nav-number">1.17.</span> <span class="nav-text">Integer and Floating-Point Conversion 整数和浮点数转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Type-Aliases-类型别名"><span class="nav-number">1.18.</span> <span class="nav-text">Type Aliases 类型别名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Booleans-布尔值"><span class="nav-number">1.19.</span> <span class="nav-text">Booleans 布尔值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tuples-元组"><span class="nav-number">1.20.</span> <span class="nav-text">Tuples 元组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Optionals-可选类型"><span class="nav-number">1.21.</span> <span class="nav-text">Optionals 可选类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nil"><span class="nav-number">1.22.</span> <span class="nav-text">Nil</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#If-Statements-and-Forced-Unwrapping-If语句和强制解包"><span class="nav-number">1.23.</span> <span class="nav-text">If Statements and Forced Unwrapping  If语句和强制解包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Optional-Binding-可选绑定"><span class="nav-number">1.24.</span> <span class="nav-text">Optional Binding 可选绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Implicitly-Unwrapped-Optionals-隐式解包可选类型"><span class="nav-number">1.25.</span> <span class="nav-text">Implicitly Unwrapped Optionals 隐式解包可选类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Error-Handling-错误处理"><span class="nav-number">1.26.</span> <span class="nav-text">Error Handling 错误处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Assertions-and-Preconditions-断言和先决条件"><span class="nav-number">1.27.</span> <span class="nav-text">Assertions and Preconditions 断言和先决条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Debugging-with-Assertions-用断言进行调试"><span class="nav-number">1.28.</span> <span class="nav-text">Debugging with Assertions 用断言进行调试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Enforcing-Preconditions-执行先决条件"><span class="nav-number">1.29.</span> <span class="nav-text">Enforcing Preconditions 执行先决条件</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Charzluo</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
